@@ -6,8 +6,12 @@
     --red: #c1071e;
     --back1: #172138;
     --back2: #000b25;
+    --black: #1a1a1a;
 
     --font: 'Quicksand', sans-serif;
+    --fntsz-big: 24px;
+    --fntsz-middle: 20px;
+    --fntsz-small: 18px;
 }
 
 

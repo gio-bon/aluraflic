@@ -1,5 +1,8 @@
 import Banner from '../../components/Banner';
+import Card from '../../components/Card';
+import Footer from '../../components/Footer';
 import HeaderMain from '../../components/HeaderMain';
+import SectionCards from '../../components/SectionCards';
 
 
 const Inicial = () => {
@@ -7,6 +10,10 @@ const Inicial = () => {
     <>
       <HeaderMain/>
       <Banner/>
+      <SectionCards titulo="Front End" selecao="videos-front"/>
+      <SectionCards titulo="Back End" selecao="videos-back"/>
+      <SectionCards titulo="Mobile" selecao="videos-mobile"/>
+      <Footer />
     </>
   )
 }

@@ -1,6 +1,19 @@
 import styled from 'styled-components';
 import '../../index.css'
 
+const HeaderMain = () => {
+  return (
+    <StyledHeader>
+          <img src="./logo.png" alt="logotipo" />
+        <StyledH2>
+          <h2>Home</h2>
+          <h2>Novo Video</h2>
+        </StyledH2>
+    </StyledHeader>
+  )
+}
+
+
 const StyledHeader = styled.header`
   font-family: var(--font);
   background-color: var(--back2);
@@ -13,29 +26,11 @@ const StyledHeader = styled.header`
   justify-content: space-around;
 `;
 
-const StyledLogo = styled.div`
-  font-size: 24px;
-  color: white;
-`;
-
 const StyledH2 = styled.div`
+  font-size: 14px;
   display: flex;
   gap: 20px;
   color: white;
 `;
-
-const HeaderMain = () => {
-  return (
-    <StyledHeader>
-        <StyledLogo>
-          <img src="./logo.png" alt="logotipo" />
-        </StyledLogo>
-        <StyledH2>
-          <h2>Home</h2>
-          <h2>Novo Video</h2>
-        </StyledH2>
-    </StyledHeader>
-  )
-}
 
 export default HeaderMain
