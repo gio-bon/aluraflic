@@ -3,6 +3,7 @@
 :root{
     --white: #ffffff;
     --gray: #dedede;
+    --gray1:rgb(148, 147, 147);
     --red: #c1071e;
     --back1: #172138;
     --back2: #000b25;
@@ -14,7 +15,9 @@
     --fntsz-small: 18px;
 }
 
-
+html {
+    overflow-x: hidden; /* remover barra de rolagem horizontal */
+}
 
 /* NORMALIZE */
 

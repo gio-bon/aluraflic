@@ -2,15 +2,19 @@
 
 - `npm create vite@latest`
 - `npm install`
-- `npm install react-icons`
-- `npm install react-router-dom`
-- `npm install styled-components@latest`
+    - `npm install react-icons`
+    - `npm install react-router-dom`
+    - `npm install styled-components@latest`
+    - `npm install -g json-server`
 - Use a extensão do VSCode `ES7+ React/Redux/React-Native snippets` para usar comando `rafce` que cria um componente funcional React com exportação
 - `npm run dev`
 - Apagar arquivos do projeto padrão que não serão usados.
 - criação de `/src/routes.jsx` para criar rotas
 - criação de `/src/pages`
 - criação de `/src/components`
+- criação de `/db.json`
+- iniciar o servidor da API falsa `json-server --watch db.json`
+- Agora você pode realizar requisições HTTP para http://localhost:3000/ para interagir com seus dados simulados.
 
 ## Compreensão
 

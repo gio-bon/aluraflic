@@ -37,6 +37,8 @@ const StyledContainer = styled.div`
     justify-content: center;
     background-color: var(--gray});
     height: 500px;
+    margin-bottom: 50px;
+    margin-top: 0;
 `
 
 const StyledH2 = styled.h2`
@@ -44,8 +46,8 @@ const StyledH2 = styled.h2`
     font-size: 42px;
     font-family: var(--font);
     font-weight: 700;
-    margin-bottom: 0;
-    margin-top: 50px;
+    margin-top: 40px;
+    margin-bottom: 20px;
 `
 
 const StyledSectionCards = styled.section`

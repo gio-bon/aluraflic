@@ -44,7 +44,7 @@ const StyledInsideBanner = styled.div`
         color: var(--white);
         font-size: 44px;
         font-family: var(--font);
-        width: 70%;
+        width: 100%;
     }
     p{
         line-height: 1.3; /* define o espaçamento entre as linhas */
@@ -52,6 +52,7 @@ const StyledInsideBanner = styled.div`
         color: var(--white);
         font-size: 24px;
         font-family: var(--font);
+        width: 90%;
     }
       
 `;
@@ -61,7 +62,7 @@ const StyledBanner = styled.div`
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 832px;
+    height: 850px;
     background-color: var(--back1);
 `;
 
@@ -69,9 +70,9 @@ const ImagemBanner = styled.img`
     border-left: 10px solid var(--red);
     border-right: 10px solid var(--red);
     position: absolute;
-    filter: blur(1px) brightness(30%); /* Adiciona o efeito de escurecimento à imagem */
+    filter: blur(8px) brightness(10%); /* Adiciona o efeito de escurecimento à imagem */
     background-color: var(--back2); /* Define a cor de fundo da imagem, com um pouco de transparência */
-    width: 1442px;
+    width: 100%;
     height: 832px;
     object-fit: cover;
 `;

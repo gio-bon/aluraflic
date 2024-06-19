@@ -30,8 +30,9 @@ const SyledButtons = styled.div`
     button{
         cursor: pointer;
         &:hover {
-            background-color: var(--red);
-            transition: 0.8s;
+            background-color: var(--white);
+            color: var(--black);
+            transition: 0.5s;
         }
         width: 100px;
         height: 40px;
@@ -67,7 +68,7 @@ const StyledCard = styled.div`
     img{
         object-fit: cover;
         height: 100%;
-        border-radius: 20px;
+        border-radius: 10px;
         width: 100%;
     }
 `
