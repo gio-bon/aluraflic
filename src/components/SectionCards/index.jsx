@@ -1,32 +1,47 @@
-import styled from "styled-components"
-import Card from "../Card"
+import styled from "styled-components";
+import Card from "../Card";
 import React, { useState, useEffect } from 'react';
 
-const SectionCards = ({ titulo, selecao }) => {
+const SectionCards = ({ titulo, selecao, alternarModal}) => {
     const [videos, setVideos] = useState([]);
-
+    const porta = 3002;
+    
+    const fetchVideos = async () => {
+        try {
+            const response = await fetch(`http://localhost:${porta}/${selecao}`);
+            const data = await response.json();
+            setVideos(data);
+        } catch (error) {
+            console.error('Erro ao buscar vídeos:', error);
+        }
+    };
+    
     useEffect(() => {
-        fetch(`./src/data/${selecao}.json`)
-            .then(response => response.json())
-            .then(data => setVideos(data.videos))
-            .catch(error => console.error('Erro ao buscar vídeos:', error));
-    }, []);
+        fetchVideos();
+    }, [selecao]);
 
     return (
-        <>
-            <StyledContainer>
-                <StyledH2>{titulo}</StyledH2>
+        <StyledContainer>
+            <StyledH2>{titulo}</StyledH2>
             <StyledSectionCards>
-            {videos.map(video => (
-                <Card
-                    key={video.id}
-                    link={`https://www.youtube.com/embed/${video.cod_video}`}
-                    cod_video={video.cod_video}
-                />
-            ))}
+                {videos.map(video => (
+                    <Card
+                        key={video.id}
+                        link={`https://www.youtube.com/embed/${video.cod_video}`}
+                        cod_video={video.cod_video}
+                        id={video.id}
+                        selecao={selecao}
+                        removeVideo={async (id, selecao) => {
+                            await fetch(`http://localhost:${porta}/${selecao}/${id}`, {
+                                method: 'DELETE',
+                            });
+                            fetchVideos();
+                        }}
+                        alternarModal={alternarModal}
+                    />
+                ))}
             </StyledSectionCards>
-            </StyledContainer>
-        </>
+        </StyledContainer>
     );
 };
 
@@ -35,28 +50,30 @@ const StyledContainer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: var(--gray});
-    height: 500px;
-    margin-bottom: 50px;
-    margin-top: 0;
-`
+    background-color: var(--gray);
+    margin-bottom: 10px;
+    margin-top: 20px;
+    padding: 20px; /* Adicionando padding para evitar invasão */
+`;
 
 const StyledH2 = styled.h2`
     color: var(--dark);
     font-size: 42px;
     font-family: var(--font);
     font-weight: 700;
-    margin-top: 40px;
+    margin-top: 0;
     margin-bottom: 20px;
-`
+`;
 
 const StyledSectionCards = styled.section`
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
     gap: 30px;
     width: 100%;
-    height: 100%;
-`
+`;
 
-export default SectionCards
+export default SectionCards;
+

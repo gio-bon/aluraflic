@@ -62,7 +62,7 @@ const StyledBanner = styled.div`
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 850px;
+    height: 852px;
     background-color: var(--back1);
 `;
 

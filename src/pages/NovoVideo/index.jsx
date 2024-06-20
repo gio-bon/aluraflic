@@ -12,7 +12,7 @@ const NovoVideo = () => {
             <h1>Novo Video</h1>
             <p>COMPLETE O FORMULÁRIO PARA CRIAR UM NOVO CARD DE VÍDEO.</p>
           </StylTitle>
-          <Formulario title="Criar Card" action="CRIAR"/>
+          <Formulario title="Criar Card" action="CRIAR" methodHTTP="POST"/>
       </StyledContainer>
     <Footer/>
     </>

@@ -1,0 +1,64 @@
+{
+  "videos-back": [
+    {
+      "id": "4",
+      "titulo": "Entendendo Back-End para Iniciantes em Programação (Parte 1) | Série Começando aos 40",
+      "cod_video": "Qjk-cSW-jk4",
+      "descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    },
+    {
+      "id": "5",
+      "titulo": "Entendendo Back-End para Iniciantes em Programação (Parte 2) | Série Começando aos 40",
+      "cod_video": "N6vgZr1k03g",
+      "descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    },
+    {
+      "id": "1fe2",
+      "titulo": "Programação Back-end",
+      "selecao": "videos-back",
+      "cod_video": "bhXaHKtklV8",
+      "descricao": "[AULAS DE GRAÇA TODA PRIMEIRA SEMANA DO MÊS]"
+    }
+  ],
+  "videos-front": [
+    {
+      "id": "1",
+      "titulo": "O que todo iniciante em Front End deveria aprender",
+      "cod_video": "yS7AcF-xRUg",
+      "descricao": "2Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "selecao": "videos-back"
+    },
+    {
+      "id": "2",
+      "titulo": "O React JS 19 está incrível! Conheça todos os novos recursos do React",
+      "cod_video": "Y8tiDuvmKUg",
+      "descricao": "Nova descrição2351166sss dddd"
+    },
+    {
+      "id": "3",
+      "titulo": "Estilização e Reutilização de Componentes Personalizados no React",
+      "cod_video": "CiSgv2ZITdQ",
+      "descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    }
+  ],
+  "videos-mobile": [
+    {
+      "id": "7",
+      "titulo": "Como Se Tornar Um Desenvolvedor MOBILE em 2024? (ROADMAP de tecnologias ATUALIZADO)",
+      "cod_video": "COY5vTa778g",
+      "descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    },
+    {
+      "id": "8",
+      "titulo": "COMO SER DEV MOBILE? QUAL LINGUAGEM ESCOLHER?",
+      "cod_video": "Pf0U353nmJc",
+      "descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    },
+    {
+      "id": "9",
+      "titulo": "Desenvolvimento Android Hipsters",
+      "cod_video": "fWscDFHKgw8",
+      "descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    }
+  ]
+}

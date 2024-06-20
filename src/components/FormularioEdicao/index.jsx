@@ -1,52 +1,61 @@
-import React, { useState } from 'react'
+import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
-const Formulario = ({ title, action, methodHTTP }) => {
+const FormularioEdicao = ({idEdit, selecaoEdit}) => {
+
+    const porta = 3002;
+    
     const [dataForm, setDataForm] = useState({
         titulo: '',
         selecao: '',
         cod_video: '',
         descricao: ''
     });
+    
+    const fetchVideos = async () => {
+        try {
+            const response = await fetch(`http://localhost:${porta}/${selecaoEdit}/${idEdit}`);
+            const data = await response.json();
+            setDataForm(data);
+        } catch (error) {
+            console.error('Erro ao buscar dados:', error);
+        }
+    };
+    
+    useEffect(() => {
+        fetchVideos();
+    }, [idEdit, selecaoEdit]);
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (methodHTTP == 'POST') {
-            sendPostSubmit();
-        }
-        setDataForm({
-            titulo: '',
-            selecao: '',
-            cod_video: '',
-            descricao: ''
-        });
-        /* Limpar os campos do formulário */
-        document.querySelectorAll('input').forEach(input => {
+        sendPutSubmit();
+
+/*         document.querySelectorAll('input').forEach(input => {
             input.value = '';
         });
         document.querySelector('textarea').value = '';
-        document.querySelector('#selecao').value = '';
-
-        const msgSucesso = document.getElementById('msg-sucess');
-        msgSucesso.textContent = 'Vídeo salvo com sucesso!';
+        document.querySelector('#selecao').value = ''; */
     }
 
-    const sendPostSubmit = () => {
-        fetch(`http://localhost:3002/${dataForm.selecao}`, {
-            method: methodHTTP,
+    const sendPutSubmit = () => {
+        
+        fetch(`http://localhost:3002/${selecaoEdit}/${idEdit}`, {
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(dataForm)
         })
+        const msgSucesso = document.getElementById('msg-sucess');
+        msgSucesso.textContent = 'Edição salva com sucesso!';
+        
     }
 
     return (
         <form onSubmit={(event) => handleSubmit(event, methodHTTP)}>
             <StyledForm>
-                <h4>{title}</h4>
                 <input type="text" value={dataForm.titulo} placeholder="Título" onChange={(e) => setDataForm({ ...dataForm, titulo: e.target.value })} />
-                <select id="selecao" value={dataForm.selecao} required onChange={(e) => setDataForm({ ...dataForm, selecao: e.target.value })}>
+                <select id="selecao" value={selecaoEdit} required onChange={(e) => setDataForm({ ...dataForm, selecao: e.target.value })}>
                     <option value="">Selecione uma Categoria</option>
                     <option value="videos-front">Front End</option>
                     <option value="videos-back">Back End</option>
@@ -55,7 +64,7 @@ const Formulario = ({ title, action, methodHTTP }) => {
                 <input type="text" value={dataForm.cod_video} placeholder="URL do vídeo" onChange={(e) => setDataForm({ ...dataForm, cod_video: e.target.value })} />
                 <textarea value={dataForm.descricao} placeholder="Descrição" onChange={(e) => setDataForm({ ...dataForm, descricao: e.target.value })}></textarea>
                 <StyledDivButtons>
-                    <button type="submit">{action}</button>
+                    <button type="submit" onClick={handleSubmit}>SALVAR</button>
                     <button type="reset" onClick={() => setDataForm({ titulo: '', selecao: '', cod_video: '', descricao: '' })}>LIMPAR</button>
                 </StyledDivButtons>
                 <StyleDivSucess> <p id="msg-sucess"></p> </StyleDivSucess>
@@ -144,5 +153,4 @@ const StyledForm = styled.div`
   }
 `
 
-export default Formulario
-
+export default FormularioEdicao

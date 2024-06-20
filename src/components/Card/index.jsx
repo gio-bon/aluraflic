@@ -2,18 +2,19 @@ import styled from 'styled-components'
 import { GrEdit } from 'react-icons/gr';
 import {RiDeleteBin2Fill} from 'react-icons/ri'
 
-const Card = ({cod_video, link}) => {
+const Card = ({cod_video, link, removeVideo, id, selecao, alternarModal}) => {
   const link_back = `https://img.youtube.com/vi/${cod_video}/sddefault.jpg`;
 
   return (
+    <>
     <StyledCard>
-        {/* <iframe src={link} title={titulo}></iframe> */}
-        <a href={link} target="_blank" rel="noopener noreferrer"><img src={link_back} alt="img card" /> </a>
+        <a href={link} target="_blank" rel="noopener noreferrer"><img src={link_back} alt="img card" /></a>
         <SyledButtons>
-            <button><RiDeleteBin2Fill/> Deletar</button>
-            <button><GrEdit/> Editar</button>
+            <button onClick={() => removeVideo(id, selecao)} ><RiDeleteBin2Fill/> Deletar</button> 
+            <button onClick={() => { alternarModal(id, selecao) }}><GrEdit/> Editar</button>
         </SyledButtons>
     </StyledCard>
+    </>
   )
 }
 
