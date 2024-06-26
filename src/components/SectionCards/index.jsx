@@ -8,7 +8,7 @@ const SectionCards = ({ titulo, selecao, alternarModal}) => {
     
     const fetchVideos = async () => {
         try {
-            const response = await fetch(`http://localhost:${porta}/${selecao}`);
+            const response = await fetch(`https://my-json-server.typicode.com/gio-bon/fake_json_server_aluraflix/${selecao}`);
             const data = await response.json();
             setVideos(data);
         } catch (error) {

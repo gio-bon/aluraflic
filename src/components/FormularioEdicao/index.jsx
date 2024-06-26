@@ -16,7 +16,7 @@ const FormularioEdicao = ({idEdit, selecaoEdit}) => {
     
     const fetchVideos = async () => {
         try {
-            const response = await fetch(`http://localhost:${porta}/${selecaoEdit}/${idEdit}`);
+            const response = await fetch(`https://my-json-server.typicode.com/gio-bon/fake_json_server_aluraflix/${selecaoEdit}/${idEdit}`);
             const data = await response.json();
             setDataForm(data);
         } catch (error) {
