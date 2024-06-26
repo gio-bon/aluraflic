@@ -1,4 +1,6 @@
-# React + Vite
+Deploy: https://aluraflix-three-tan.vercel.app/
+
+# Projeto
 
 - `npm create vite@latest`
 - `npm install`
