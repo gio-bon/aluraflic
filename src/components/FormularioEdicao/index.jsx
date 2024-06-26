@@ -5,8 +5,10 @@ import useCommon from '../../hooks/commonThings';
 const FormularioEdicao = ({idEdit, selecaoEdit}) => {
   const { extractVideoID } = useCommon();
 
+    // Constante com a porta do servidor
     const porta = 3002;
     
+    // Estado para armazenar os dados do formulário
     const [dataForm, setDataForm] = useState({
         titulo: '',
         selecao: '',
@@ -14,27 +16,36 @@ const FormularioEdicao = ({idEdit, selecaoEdit}) => {
         descricao: ''
     });
     
+    // Função assíncrona para buscar os dados do vídeo
     const fetchVideos = async () => {
         try {
+            // Faz uma requisição para o servidor
             const response = await fetch(`https://my-json-server.typicode.com/gio-bon/fake_json_server_aluraflix/${selecaoEdit}/${idEdit}`);
+            // Transforma a resposta em JSON
             const data = await response.json();
+            // Atualiza os dados do formulário
             setDataForm(data);
         } catch (error) {
+            // Exibe uma mensagem de erro
             console.error('Erro ao buscar dados:', error);
         }
     };
     
+    // Executa a função fetchVideos quando o componente é montado ou quando os parâmetros mudam
     useEffect(() => {
         fetchVideos();
     }, [idEdit, selecaoEdit]);
 
+    // Função para lidar com o envio do formulário
     const handleSubmit = (event) => {
         event.preventDefault();
         sendPutSubmit();
     }
 
+    // Função para enviar os dados para o servidor
     const sendPutSubmit = () => {
         
+        // Faz uma requisição PUT para o servidor
         fetch(`https://my-json-server.typicode.com/gio-bon/fake_json_server_aluraflix/${selecaoEdit}/${idEdit}`, {
             method: 'PUT',
             headers: {
@@ -42,6 +53,7 @@ const FormularioEdicao = ({idEdit, selecaoEdit}) => {
             },
             body: JSON.stringify(dataForm)
         })
+        // Atualiza o texto do elemento com o id 'msg-sucess'
         const msgSucesso = document.getElementById('msg-sucess');
         msgSucesso.textContent = 'Edição salva com sucesso!';
         

@@ -1,5 +1,9 @@
 Deploy: https://aluraflix-three-tan.vercel.app/
 
+![](https://raw.githubusercontent.com/gio-bon/aluraflix/main/src/assets/Screenshot%202024-06-26%20at%2016-36-01%20Vite%20React.png)
+![](https://raw.githubusercontent.com/gio-bon/aluraflix/main/src/assets/Screenshot%202024-06-26%20at%2016-37-14%20Vite%20React.png)
+![](https://raw.githubusercontent.com/gio-bon/aluraflix/main/src/assets/Screenshot%202024-06-26%20at%2016-36-21%20Vite%20React.png)
+
 # Projeto
 
 - `npm create vite@latest`

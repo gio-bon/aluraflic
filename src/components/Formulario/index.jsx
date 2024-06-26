@@ -12,18 +12,13 @@ const Formulario = ({ title, action, methodHTTP }) => {
     descricao: ''
   });
 
+  // Manipula o envio do formulário
   const handleSubmit = (event) => {
     event.preventDefault();
     if (methodHTTP === 'POST') {
       sendPostSubmit();
     }
-    setDataForm({
-      titulo: '',
-      selecao: '',
-      cod_video: '',
-      descricao: ''
-    });
-    /* Limpar os campos do formulário */
+    // Limpa os campos do formulário
     document.querySelectorAll('input').forEach(input => {
       input.value = '';
     });
@@ -32,11 +27,13 @@ const Formulario = ({ title, action, methodHTTP }) => {
     mensagemSucess('Vídeo salvo com sucesso!');
   };
 
+  // Define a mensagem de sucesso
   const mensagemSucess = (mensagem) => {
     const msgSucesso = document.getElementById('msg-sucess');
     msgSucesso.textContent = mensagem;
   };
 
+  // Envia os dados para o servidor
   const sendPostSubmit = () => {
     fetch(`https://my-json-server.typicode.com/gio-bon/fake_json_server_aluraflix/${dataForm.selecao}`, {
       method: methodHTTP,
