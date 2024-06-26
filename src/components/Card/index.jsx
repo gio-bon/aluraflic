@@ -72,6 +72,7 @@ const StyledCard = styled.div`
         border-radius: 10px;
         width: 100%;
     }
+    }
 `
 
 export default Card

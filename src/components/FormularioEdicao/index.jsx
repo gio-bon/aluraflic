@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import useCommon from '../../hooks/commonThings';
 
 const FormularioEdicao = ({idEdit, selecaoEdit}) => {
+  const { extractVideoID } = useCommon();
 
     const porta = 3002;
     
@@ -29,12 +31,6 @@ const FormularioEdicao = ({idEdit, selecaoEdit}) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         sendPutSubmit();
-
-/*         document.querySelectorAll('input').forEach(input => {
-            input.value = '';
-        });
-        document.querySelector('textarea').value = '';
-        document.querySelector('#selecao').value = ''; */
     }
 
     const sendPutSubmit = () => {
@@ -61,7 +57,7 @@ const FormularioEdicao = ({idEdit, selecaoEdit}) => {
                     <option value="videos-back">Back End</option>
                     <option value="videos-mobile">Mobile</option>
                 </select>
-                <input type="text" value={dataForm.cod_video} placeholder="URL do vídeo" onChange={(e) => setDataForm({ ...dataForm, cod_video: e.target.value })} />
+                <input type="text" value={dataForm.cod_video} placeholder="URL do vídeo" onChange={(e) => setDataForm({ ...dataForm, cod_video: extractVideoID(e.target.value) })} />
                 <textarea value={dataForm.descricao} placeholder="Descrição" onChange={(e) => setDataForm({ ...dataForm, descricao: e.target.value })}></textarea>
                 <StyledDivButtons>
                     <button type="submit" onClick={handleSubmit}>SALVAR</button>

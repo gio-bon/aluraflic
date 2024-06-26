@@ -1,78 +1,107 @@
-import React, { useState } from 'react'
-import styled from 'styled-components'
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import useCommon from '../../hooks/commonThings';
 
 const Formulario = ({ title, action, methodHTTP }) => {
-    const [dataForm, setDataForm] = useState({
-        titulo: '',
-        selecao: '',
-        cod_video: '',
-        descricao: ''
+  const { extractVideoID } = useCommon();
+
+  const [dataForm, setDataForm] = useState({
+    titulo: '',
+    selecao: '',
+    cod_video: '',
+    descricao: ''
+  });
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (methodHTTP === 'POST') {
+      sendPostSubmit();
+    }
+    setDataForm({
+      titulo: '',
+      selecao: '',
+      cod_video: '',
+      descricao: ''
     });
+    /* Limpar os campos do formulário */
+    document.querySelectorAll('input').forEach(input => {
+      input.value = '';
+    });
+    document.querySelector('textarea').value = '';
+    document.querySelector('#selecao').value = '';
+    mensagemSucess('Vídeo salvo com sucesso!');
+  };
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        if (methodHTTP == 'POST') {
-            sendPostSubmit();
-        }
-        setDataForm({
-            titulo: '',
-            selecao: '',
-            cod_video: '',
-            descricao: ''
-        });
-        /* Limpar os campos do formulário */
-        document.querySelectorAll('input').forEach(input => {
-            input.value = '';
-        });
-        document.querySelector('textarea').value = '';
-        document.querySelector('#selecao').value = '';
+  const mensagemSucess = (mensagem) => {
+    const msgSucesso = document.getElementById('msg-sucess');
+    msgSucesso.textContent = mensagem;
+  };
 
-        const msgSucesso = document.getElementById('msg-sucess');
-        msgSucesso.textContent = 'Vídeo salvo com sucesso!';
-    }
+  const sendPostSubmit = () => {
+    fetch(`http://localhost:3002/${dataForm.selecao}`, {
+      method: methodHTTP,
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(dataForm)
+    });
+  };
 
-    const sendPostSubmit = () => {
-        fetch(`http://localhost:3002/${dataForm.selecao}`, {
-            method: methodHTTP,
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(dataForm)
-        })
-    }
-
-    return (
-        <form onSubmit={(event) => handleSubmit(event, methodHTTP)}>
-            <StyledForm>
-                <h4>{title}</h4>
-                <input type="text" value={dataForm.titulo} placeholder="Título" onChange={(e) => setDataForm({ ...dataForm, titulo: e.target.value })} />
-                <select id="selecao" value={dataForm.selecao} required onChange={(e) => setDataForm({ ...dataForm, selecao: e.target.value })}>
-                    <option value="">Selecione uma Categoria</option>
-                    <option value="videos-front">Front End</option>
-                    <option value="videos-back">Back End</option>
-                    <option value="videos-mobile">Mobile</option>
-                </select>
-                <input type="text" value={dataForm.cod_video} placeholder="URL do vídeo" onChange={(e) => setDataForm({ ...dataForm, cod_video: e.target.value })} />
-                <textarea value={dataForm.descricao} placeholder="Descrição" onChange={(e) => setDataForm({ ...dataForm, descricao: e.target.value })}></textarea>
-                <StyledDivButtons>
-                    <button type="submit">{action}</button>
-                    <button type="reset" onClick={() => setDataForm({ titulo: '', selecao: '', cod_video: '', descricao: '' })}>LIMPAR</button>
-                </StyledDivButtons>
-                <StyleDivSucess> <p id="msg-sucess"></p> </StyleDivSucess>
-            </StyledForm>
-        </form>
-    )
-}
+  return (
+    <form onSubmit={handleSubmit}>
+      <StyledForm>
+        <h4>{title}</h4>
+        <input
+          type="text"
+          value={dataForm.titulo}
+          placeholder="Título"
+          onChange={(e) => setDataForm({ ...dataForm, titulo: e.target.value })}
+        />
+        <select
+          id="selecao"
+          value={dataForm.selecao}
+          required
+          onChange={(e) => setDataForm({ ...dataForm, selecao: e.target.value })}
+        >
+          <option value="">Selecione uma Categoria</option>
+          <option value="videos-front">Front End</option>
+          <option value="videos-back">Back End</option>
+          <option value="videos-mobile">Mobile</option>
+        </select>
+        <input
+          type="text"
+          value={dataForm.cod_video}
+          placeholder="URL do vídeo"
+          onChange={(e) => setDataForm({ ...dataForm, cod_video: extractVideoID(e.target.value) })}
+        />
+        <textarea
+          value={dataForm.descricao}
+          placeholder="Descrição"
+          onChange={(e) => setDataForm({ ...dataForm, descricao: e.target.value })}
+        ></textarea>
+        <StyledDivButtons>
+          <button type="submit">{action}</button>
+          <button
+            type="reset"
+            onClick={() => setDataForm({ titulo: '', selecao: '', cod_video: '', descricao: '' })}
+          >
+            LIMPAR
+          </button>
+        </StyledDivButtons>
+        <StyleDivSucess><p id="msg-sucess"></p></StyleDivSucess>
+      </StyledForm>
+    </form>
+  );
+};
 
 const StyleDivSucess = styled.div`
-    
-    p {
-        font-family: var(--font);
-        font-size: var(--fntsz-small);
-        font-weight: 500;
-        color: var(--white);
-    }
-`
+  p {
+    font-family: var(--font);
+    font-size: var(--fntsz-small);
+    font-weight: 500;
+    color: var(--white);
+  }
+`;
 
 const StyledDivButtons = styled.div`
   width: 500px;
@@ -88,7 +117,7 @@ const StyledDivButtons = styled.div`
       transition: 0.5s;
     }
   }
-`
+`;
 
 const StyledForm = styled.div`
   display: flex;
@@ -142,7 +171,6 @@ const StyledForm = styled.div`
     margin-top: 30px;
     margin-bottom: 20px;
   }
-`
+`;
 
-export default Formulario
-
+export default Formulario;
