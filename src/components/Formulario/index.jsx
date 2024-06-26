@@ -38,7 +38,7 @@ const Formulario = ({ title, action, methodHTTP }) => {
   };
 
   const sendPostSubmit = () => {
-    fetch(`http://localhost:3002/${dataForm.selecao}`, {
+    fetch(`https://my-json-server.typicode.com/gio-bon/fake_json_server_aluraflix/${dataForm.selecao}`, {
       method: methodHTTP,
       headers: {
         'Content-Type': 'application/json'

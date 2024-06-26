@@ -32,7 +32,7 @@ const SectionCards = ({ titulo, selecao, alternarModal}) => {
                         id={video.id}
                         selecao={selecao}
                         removeVideo={async (id, selecao) => {
-                            await fetch(`http://localhost:${porta}/${selecao}/${id}`, {
+                            await fetch(`https://my-json-server.typicode.com/gio-bon/fake_json_server_aluraflix/${porta}/${selecao}/${id}`, {
                                 method: 'DELETE',
                             });
                             fetchVideos();

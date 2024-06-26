@@ -15,6 +15,7 @@
 - criação de `/db.json`
 - iniciar o servidor da API falsa `json-server --watch db.json`
 - Agora você pode realizar requisições HTTP para http://localhost:3000/ para interagir com seus dados simulados.
+- Fake JSON Server: https://my-json-server.typicode.com/gio-bon/fake_json_server_aluraflix
 
 ## Compreensão
 

@@ -35,7 +35,7 @@ const FormularioEdicao = ({idEdit, selecaoEdit}) => {
 
     const sendPutSubmit = () => {
         
-        fetch(`http://localhost:3002/${selecaoEdit}/${idEdit}`, {
+        fetch(`https://my-json-server.typicode.com/gio-bon/fake_json_server_aluraflix/${selecaoEdit}/${idEdit}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
